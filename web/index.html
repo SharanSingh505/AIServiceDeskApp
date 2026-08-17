@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Service Desk MVP</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">LOCAL MVP · SAMPLE DATA</p>
+      <h1>AI Service Desk Assistant</h1>
+      <p class="intro">Select a sample ticket to see a transparent engineer recommendation and SLA estimate.</p>
+      <section class="create-ticket" aria-labelledby="create-title">
+        <div>
+          <p class="eyebrow">TRY THE MVP</p>
+          <h2 id="create-title">Create a local ticket</h2>
+          <p>Use this form to test how the recommendation changes by category and priority.</p>
+        </div>
+        <form id="create-ticket-form">
+          <label>Issue summary<input name="summary" required minlength="5" placeholder="VPN connection fails" /></label>
+          <label>Category
+            <select name="category" required><option value="vpn">VPN / Network</option><option value="iam">Identity & Access</option><option value="m365">Microsoft 365</option></select>
+          </label>
+          <label>Priority
+            <select name="priority" required><option value="P1">P1 — Critical</option><option value="P2" selected>P2 — High</option><option value="P3">P3 — Medium</option><option value="P4">P4 — Low</option></select>
+          </label>
+          <label>Business impact<input name="business_impact" required minlength="3" placeholder="Client meeting at risk" /></label>
+          <button type="submit">Create ticket & get recommendation</button>
+          <p id="form-status" class="form-status" aria-live="polite"></p>
+        </form>
+      </section>
+      <section class="metrics" aria-label="Manager queue snapshot">
+        <div><span>Open tickets</span><strong id="open-count">—</strong></div>
+        <div><span>Assigned</span><strong id="assigned-count">—</strong></div>
+        <div><span>At-risk SLA</span><strong id="risk-count">—</strong></div>
+      </section>
+      <section class="layout">
+        <div>
+          <h2>Sample tickets</h2>
+          <div id="ticket-list" class="ticket-list"></div>
+        </div>
+        <aside id="result" class="result" aria-live="polite">
+          <p>Select a ticket to get a recommendation.</p>
+        </aside>
+      </section>
+      <p class="notice">MVP guardrail: recommendations are advisory. A manager makes the final assignment.</p>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
