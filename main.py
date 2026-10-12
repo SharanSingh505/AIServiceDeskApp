@@ -8,7 +8,7 @@ from pydantic import BaseModel, Field
 
 from assignment_engine import recommend
 from database import (assign_ticket as save_assignment, create_ticket as save_ticket,
-                      get_engineer, get_ticket, initialize_database, list_engineers,
+                      get_engineer, get_ticket, initialize_database,  list_engineers as database_list_engineers,
                       list_tickets as database_list_tickets)
 
 app = FastAPI(title="AI Service Desk MVP", version="0.1.0")
@@ -52,7 +52,7 @@ def list_tickets() -> list[dict]:
 
 @app.get("/api/engineers")
 def list_engineers() -> list[dict]:
-    return list_engineers()
+    return  database_list_engineers()
 
 
 @app.get("/api/dashboard")

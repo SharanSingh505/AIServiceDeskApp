@@ -1,0 +1,17 @@
+# Python virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment/secrets
+.env
+.env.*
+!.env.example
+
+# Local Azure settings
+local.settings.json
+
+# Local SQLite database
+service_desk.db
